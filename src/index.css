@@ -1,0 +1,54 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    color-scheme: light;
+  }
+  
+  body {
+    @apply bg-slate-50 text-slate-800 font-sans antialiased overflow-x-hidden;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply tracking-tight text-navy-950 font-bold;
+  }
+}
+
+/* Custom styling for luxury construction consultancy aesthetic */
+.navy-gradient {
+  background: linear-gradient(135deg, #081321 0%, #0f2238 60%, #152945 100%);
+}
+
+.gold-gradient {
+  background: linear-gradient(135deg, #d4aa63 0%, #c5923b 50%, #b0792d 100%);
+}
+
+.gold-gradient-subtle {
+  background: linear-gradient(135deg, #fbf8f0 0%, #f6eedd 100%);
+}
+
+.hero-overlay {
+  background: linear-gradient(to right, rgba(8, 19, 33, 0.95) 0%, rgba(8, 19, 33, 0.85) 60%, rgba(8, 19, 33, 0.65) 100%);
+}
+
+.card-hover {
+  @apply transition-all duration-300 hover:-translate-y-1 hover:shadow-elevated hover:border-gold-400/50;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
