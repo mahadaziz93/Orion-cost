@@ -16,6 +16,45 @@ import Breadcrumbs from '../../components/Breadcrumbs';
 import QuoteBanner from '../../components/QuoteBanner';
 
 export default function ConstructionCostEstimationPage() {
+  const costShowcase = [
+    {
+      title: "Scheme Feasibility & Early Estimates",
+      type: "NRM1 Cost Model",
+      desc: "Robust order-of-cost estimates developed from concept sketches and preliminary spatial metrics.",
+      image: "/images/construction-cost.jpg"
+    },
+    {
+      title: "Structural & Superstructure Costs",
+      type: "Frame & Civils Modeling",
+      desc: "Detailed pricing models evaluating concrete frame, structural steel, and hybrid systems for value optimisation.",
+      image: "/images/structural-steel.jpg"
+    },
+    {
+      title: "Elemental Design Stage Plans",
+      type: "RIBA Stage Costing",
+      desc: "Cost plans tracking design progression across RIBA Stages 2 through 4 to ensure schemes stay within budget.",
+      image: "/images/architectural-plans.jpg"
+    },
+    {
+      title: "Site Abnormals & Ground Risk",
+      type: "Risk Appraisals",
+      desc: "Allowances for ground contamination, piling, retaining structures, statutory diversions, and site access constraints.",
+      image: "/images/site-inspection.jpg"
+    },
+    {
+      title: "Market Supply Chain Intelligence",
+      type: "Rate Benchmarking",
+      desc: "Estimates calibrated against current UK construction price indices, tender inflation, and regional labour availability.",
+      image: "/images/contractor-review.jpg"
+    },
+    {
+      title: "Bank & Investor Monitoring Reports",
+      type: "Financial Validation",
+      desc: "Formal construction appraisals providing financial institutions and development funders with independent certainty.",
+      image: "/images/about-consultancy.jpg"
+    }
+  ];
+
   return (
     <div className="bg-slate-50 min-h-screen">
       
@@ -23,7 +62,7 @@ export default function ConstructionCostEstimationPage() {
       <section className="bg-[#081a2e] text-white py-12 sm:py-16 relative overflow-hidden border-b border-navy-800">
         <div className="absolute right-0 top-0 bottom-0 w-full lg:w-1/2 z-0">
           <img 
-            src="/images/hero-architecture.jpg" 
+            src="/images/construction-cost.jpg" 
             alt="Multi-storey building construction site at sunset" 
             className="w-full h-full object-cover object-center"
           />
@@ -104,25 +143,25 @@ export default function ConstructionCostEstimationPage() {
                     <div className="w-4 h-4 rounded-full bg-[#fcf8ee] border border-[#d4a34b] text-[#b58734] flex items-center justify-center shrink-0">
                       <Check className="w-3 h-3 stroke-[3]" />
                     </div>
-                    <span>Detailed cost estimates (RICS-compliant where applicable)</span>
+                    <span>Comprehensive cost estimates covering all project elements</span>
                   </div>
                   <div className="flex items-center space-x-2.5 text-xs sm:text-sm text-slate-700 font-medium">
                     <div className="w-4 h-4 rounded-full bg-[#fcf8ee] border border-[#d4a34b] text-[#b58734] flex items-center justify-center shrink-0">
                       <Check className="w-3 h-3 stroke-[3]" />
                     </div>
-                    <span>Material, labour and equipment cost breakdowns</span>
+                    <span>Detailed material, labour and plant cost breakdowns</span>
                   </div>
                   <div className="flex items-center space-x-2.5 text-xs sm:text-sm text-slate-700 font-medium">
                     <div className="w-4 h-4 rounded-full bg-[#fcf8ee] border border-[#d4a34b] text-[#b58734] flex items-center justify-center shrink-0">
                       <Check className="w-3 h-3 stroke-[3]" />
                     </div>
-                    <span>Trade and sub-contractor analysis</span>
+                    <span>Up-to-date pricing based on current UK market data</span>
                   </div>
                   <div className="flex items-center space-x-2.5 text-xs sm:text-sm text-slate-700 font-medium">
                     <div className="w-4 h-4 rounded-full bg-[#fcf8ee] border border-[#d4a34b] text-[#b58734] flex items-center justify-center shrink-0">
                       <Check className="w-3 h-3 stroke-[3]" />
                     </div>
-                    <span>Risk assessment, contingencies and value engineering</span>
+                    <span>Clear and transparent reporting for confident budgeting</span>
                   </div>
                 </div>
               </div>
@@ -135,7 +174,7 @@ export default function ConstructionCostEstimationPage() {
                 <div>
                   <div className="text-xs font-bold text-[#081a2e]">Ideal For</div>
                   <div className="text-xs text-slate-500 mt-0.5">
-                    Developers, contractors, architects and businesses planning construction projects of any size.
+                    Developers, contractors, architects and property owners needing reliable budget certainty.
                   </div>
                 </div>
               </div>
@@ -146,23 +185,23 @@ export default function ConstructionCostEstimationPage() {
                 <div className="grid grid-cols-2 gap-2">
                   <div className="col-span-1 h-44 bg-slate-100 rounded overflow-hidden">
                     <img 
-                      src="/images/structural-steel.jpg" 
-                      alt="Structural concrete framework with engineer" 
+                      src="/images/construction-cost.jpg" 
+                      alt="Construction site frame" 
                       className="w-full h-full object-cover"
                     />
                   </div>
                   <div className="col-span-1 grid grid-rows-2 gap-2 h-44">
                     <div className="rounded overflow-hidden bg-slate-100">
                       <img 
-                        src="/images/surveyor-tools.jpg" 
-                        alt="Calculator, scale and architectural plans" 
+                        src="/images/structural-steel.jpg" 
+                        alt="Structural frame" 
                         className="w-full h-full object-cover"
                       />
                     </div>
                     <div className="rounded overflow-hidden bg-slate-100">
                       <img 
-                        src="/images/contractor-review.jpg" 
-                        alt="Construction review on building framework" 
+                        src="/images/site-inspection.jpg" 
+                        alt="Surveyor inspection" 
                         className="w-full h-full object-cover"
                       />
                     </div>
@@ -179,34 +218,28 @@ export default function ConstructionCostEstimationPage() {
                     <ul className="space-y-2 text-xs text-slate-600">
                       <li className="flex items-start space-x-2">
                         <Check className="w-3.5 h-3.5 text-[#b58734] shrink-0 mt-0.5" />
-                        <span>Quantity take-offs and material calculations</span>
+                        <span>Elemental cost estimates (NRM compliant)</span>
                       </li>
                       <li className="flex items-start space-x-2">
                         <Check className="w-3.5 h-3.5 text-[#b58734] shrink-0 mt-0.5" />
-                        <span>Labour and equipment costs</span>
+                        <span>Trade-by-trade cost breakdowns</span>
                       </li>
                       <li className="flex items-start space-x-2">
                         <Check className="w-3.5 h-3.5 text-[#b58734] shrink-0 mt-0.5" />
-                        <span>Itemised cost breakdowns (CSI format)</span>
+                        <span>Contingency &amp; risk analysis</span>
                       </li>
                       <li className="flex items-start space-x-2">
                         <Check className="w-3.5 h-3.5 text-[#b58734] shrink-0 mt-0.5" />
-                        <span>Final estimate with summary and recommendations</span>
+                        <span>Professional consultancy summary report</span>
                       </li>
                     </ul>
                   </div>
                 </div>
               </div>
 
-              {/* Professional Consultancy Exclusivity Notice */}
-              <div className="p-4 rounded-lg bg-navy-950 text-slate-300 border border-navy-800 text-xs leading-relaxed space-y-1.5">
-                <div className="flex items-center space-x-2 text-[#d4a34b] font-bold">
-                  <ShieldCheck className="w-4 h-4 shrink-0" />
-                  <span>Independent Consultancy Practice</span>
-                </div>
-                <p>
-                  At Orion Build Cost, construction cost estimation is delivered exclusively as a tailored professional service. We analyse your specific architectural concepts, engineering drawings, and site conditions rather than applying superficial online formulas.
-                </p>
+              {/* Informational Consultancy Notice */}
+              <div className="p-4 rounded-lg bg-slate-50/80 border border-slate-200/90 text-xs text-slate-600 leading-relaxed">
+                <span className="font-bold text-[#081a2e]">Consultancy Basis:</span> Construction cost estimates are prepared strictly as bespoke professional consultancy assessments based on supplied drawings, specifications, and site information. We do not use generic automatic calculators or synthetic approximations.
               </div>
 
             </div>
@@ -219,7 +252,7 @@ export default function ConstructionCostEstimationPage() {
                   — OUR PROCESS
                 </div>
                 <h3 className="text-base font-bold text-[#081a2e] mb-5">
-                  From Plans to Accurate Cost Estimates
+                  How We Estimate Your Costs
                 </h3>
 
                 {/* 3 Step Process List */}
@@ -232,10 +265,10 @@ export default function ConstructionCostEstimationPage() {
                     </div>
                     <div>
                       <h4 className="text-xs font-bold text-[#081a2e] mb-0.5">
-                        Plan Review &amp; Scope Assessment
+                        Project Brief &amp; Plan Review
                       </h4>
                       <p className="text-[11px] text-slate-500 leading-relaxed">
-                        We review your drawings, specifications and scope of work to understand the project requirements.
+                        We review your drawings, specifications and project requirements in detail.
                       </p>
                     </div>
                   </div>
@@ -247,10 +280,10 @@ export default function ConstructionCostEstimationPage() {
                     </div>
                     <div>
                       <h4 className="text-xs font-bold text-[#081a2e] mb-0.5">
-                        Cost Analysis &amp; Estimation
+                        Cost Analysis &amp; Pricing
                       </h4>
                       <p className="text-[11px] text-slate-500 leading-relaxed">
-                        We obtain current market rates, analyse material, labour and equipment costs, and prepare a detailed estimate.
+                        We apply current market rates and industry benchmarks to calculate accurate costs.
                       </p>
                     </div>
                   </div>
@@ -262,10 +295,10 @@ export default function ConstructionCostEstimationPage() {
                     </div>
                     <div>
                       <h4 className="text-xs font-bold text-[#081a2e] mb-0.5">
-                        Final Report &amp; Recommendations
+                        Final Estimate &amp; Report
                       </h4>
                       <p className="text-[11px] text-slate-500 leading-relaxed">
-                        You receive a clear, itemised estimate with breakdowns, summary and value engineering advice.
+                        You receive a clear, detailed estimate with breakdowns and recommendations.
                       </p>
                     </div>
                   </div>
@@ -284,7 +317,7 @@ export default function ConstructionCostEstimationPage() {
                   </h4>
                 </div>
                 <p className="text-xs text-slate-300 leading-relaxed mb-5">
-                  Get in touch for a tailored solution and competitive quote.
+                  Get in touch for a tailored solution and a competitive quote.
                 </p>
                 <Link
                   to="/request-a-quote?service=construction-cost-estimation"
@@ -301,13 +334,70 @@ export default function ConstructionCostEstimationPage() {
         </div>
       </section>
 
+      {/* 2B. CONSTRUCTION COST ESTIMATION SHOWCASE (6 Images) */}
+      <section className="py-14 sm:py-18 bg-white border-t border-slate-200/80">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="mb-10 text-center">
+            <span className="text-[11px] font-bold uppercase tracking-wider text-[#b58734] block mb-1">
+              — CONSULTANCY COST PLANNING
+            </span>
+            <h3 className="text-2xl sm:text-3xl font-extrabold text-[#081a2e]">
+              Cost Estimation Models Across Scheme Stages
+            </h3>
+            <p className="mt-2 text-xs sm:text-sm text-slate-600 max-w-2xl mx-auto">
+              Our quantity surveying consultancy supports UK developers and contractors through early appraisals, pre-planning viability, and live contract procurement.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {costShowcase.map((item, idx) => (
+              <div 
+                key={idx}
+                className="rounded-xl border border-slate-200 overflow-hidden shadow-sm hover:shadow-md transition-all group flex flex-col justify-between bg-white"
+              >
+                <div>
+                  <div className="h-48 overflow-hidden bg-slate-100 relative">
+                    <img 
+                      src={item.image} 
+                      alt={item.title} 
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                    />
+                    <div className="absolute top-3 left-3 bg-[#081a2e]/90 text-[#d4a34b] text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded">
+                      {item.type}
+                    </div>
+                  </div>
+                  <div className="p-5">
+                    <h4 className="text-base font-bold text-[#081a2e] mb-1.5 group-hover:text-[#b58734] transition-colors">
+                      {item.title}
+                    </h4>
+                    <p className="text-xs text-slate-500 leading-relaxed">
+                      {item.desc}
+                    </p>
+                  </div>
+                </div>
+
+                <div className="px-5 pb-5 pt-0">
+                  <Link
+                    to="/request-a-quote?service=construction-cost-estimation"
+                    className="text-xs font-bold text-[#b58734] hover:text-[#916720] inline-flex items-center space-x-1"
+                  >
+                    <span>Request Cost Plan</span>
+                    <ArrowRight className="w-3 h-3 ml-1" />
+                  </Link>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* 3. BOTTOM CTA BANNER: Matches Screenshot 3 */}
       <QuoteBanner 
-        tagline="ACCURATE ESTIMATES. SMARTER DECISIONS."
-        title="Build with Confidence. From Concept to Completion."
-        middleTag="Whether it's a new build, renovation or infrastructure project —"
-        middleDesc="we're here to help you get it right."
-        middleIcon="shield"
+        tagline="ACCURATE ESTIMATES. STRONGER PROJECTS."
+        title="Get an Accurate Cost Estimate for Your Project"
+        middleTag="From initial budget to final construction —"
+        middleDesc="we provide detailed cost estimates to keep your project on budget."
+        middleIcon="calculator"
         buttonText="Request a Quote"
         buttonLink="/request-a-quote?service=construction-cost-estimation"
         theme="gold"

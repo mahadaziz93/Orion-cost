@@ -19,6 +19,45 @@ import Breadcrumbs from '../../components/Breadcrumbs';
 import QuoteBanner from '../../components/QuoteBanner';
 
 export default function QuantityTakeOffsPage() {
+  const takeOffShowcase = [
+    {
+      title: "Digital Drawing Take-Offs",
+      type: "Measurement Scope",
+      desc: "High-precision on-screen calibration of architectural plans, cross-sections, and building elevations.",
+      image: "/images/quantity-takeoffs.jpg"
+    },
+    {
+      title: "Substructure & Concrete Volumes",
+      type: "Groundworks Take-Off",
+      desc: "Detailed measurement of excavations, strip foundations, ground beams, reinforcement, and drainage runs.",
+      image: "/images/architectural-plans.jpg"
+    },
+    {
+      title: "Structural Steel & Framing",
+      type: "Superstructure Measurement",
+      desc: "Itemised tonnage schedules, connection detailing allowances, and portal frame component take-offs.",
+      image: "/images/structural-steel.jpg"
+    },
+    {
+      title: "Surveyor Measurement Station",
+      type: "Digital Verification",
+      desc: "Advanced digital tooling cross-referencing engineering notes against schedules to prevent omitted scope.",
+      image: "/images/surveyor-tools.jpg"
+    },
+    {
+      title: "Trade-by-Trade Markups",
+      type: "Annotated Drawings",
+      desc: "Colour-coded visual overlays demonstrating exact measured lengths, areas, and element counts for site teams.",
+      image: "/images/contractor-review.jpg"
+    },
+    {
+      title: "Final Quantity Schedules",
+      type: "Procurement Schedules",
+      desc: "Unencumbered spreadsheets structured for instant supplier merchant pricing and contractor bid compilation.",
+      image: "/images/hero-estimating.jpg"
+    }
+  ];
+
   return (
     <div className="bg-slate-50 min-h-screen">
       
@@ -145,8 +184,8 @@ export default function QuantityTakeOffsPage() {
                 <div className="grid grid-cols-2 gap-2">
                   <div className="col-span-1 h-44 bg-slate-100 rounded overflow-hidden">
                     <img 
-                      src="/images/site-inspection.jpg" 
-                      alt="Construction site engineer" 
+                      src="/images/surveyor-tools.jpg" 
+                      alt="Surveyor tools and scale rules" 
                       className="w-full h-full object-cover"
                     />
                   </div>
@@ -285,6 +324,63 @@ export default function QuantityTakeOffsPage() {
 
             </div>
 
+          </div>
+        </div>
+      </section>
+
+      {/* 2B. QUANTITY TAKE-OFF SHOWCASE (6 Images) */}
+      <section className="py-14 sm:py-18 bg-white border-t border-slate-200/80">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="mb-10 text-center">
+            <span className="text-[11px] font-bold uppercase tracking-wider text-[#b58734] block mb-1">
+              — MEASUREMENT WORKFLOW &amp; DELIVERABLES
+            </span>
+            <h3 className="text-2xl sm:text-3xl font-extrabold text-[#081a2e]">
+              Quantity Take-Off Scope &amp; Trade Packages
+            </h3>
+            <p className="mt-2 text-xs sm:text-sm text-slate-600 max-w-2xl mx-auto">
+              We extract every linear metre, square metre, cubic metre, and unit count directly from digital drawings with zero guesswork.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {takeOffShowcase.map((item, idx) => (
+              <div 
+                key={idx}
+                className="rounded-xl border border-slate-200 overflow-hidden shadow-sm hover:shadow-md transition-all group flex flex-col justify-between bg-white"
+              >
+                <div>
+                  <div className="h-48 overflow-hidden bg-slate-100 relative">
+                    <img 
+                      src={item.image} 
+                      alt={item.title} 
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                    />
+                    <div className="absolute top-3 left-3 bg-[#081a2e]/90 text-[#d4a34b] text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded">
+                      {item.type}
+                    </div>
+                  </div>
+                  <div className="p-5">
+                    <h4 className="text-base font-bold text-[#081a2e] mb-1.5 group-hover:text-[#b58734] transition-colors">
+                      {item.title}
+                    </h4>
+                    <p className="text-xs text-slate-500 leading-relaxed">
+                      {item.desc}
+                    </p>
+                  </div>
+                </div>
+
+                <div className="px-5 pb-5 pt-0">
+                  <Link
+                    to="/request-a-quote?service=quantity-take-offs"
+                    className="text-xs font-bold text-[#b58734] hover:text-[#916720] inline-flex items-center space-x-1"
+                  >
+                    <span>Request Take-Off</span>
+                    <ArrowRight className="w-3 h-3 ml-1" />
+                  </Link>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>

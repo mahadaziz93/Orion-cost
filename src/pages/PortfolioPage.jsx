@@ -15,7 +15,9 @@ import {
   Coins, 
   FileCheck2, 
   Eye, 
-  Info
+  Info,
+  Compass,
+  FileSpreadsheet
 } from 'lucide-react';
 import Breadcrumbs from '../components/Breadcrumbs';
 import QuoteBanner from '../components/QuoteBanner';
@@ -24,14 +26,21 @@ export default function PortfolioPage() {
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [activeProject, setActiveProject] = useState(null);
 
-  const categories = ["All", "Residential", "Commercial", "Industrial", "Renovation"];
+  const categories = [
+    "All", 
+    "Residential Projects", 
+    "Commercial Projects", 
+    "Construction Developments", 
+    "Construction Details"
+  ];
 
-  // 12 Distinct Architectural & Construction Project Examples
+  // Organised Project Examples matching Phase 7
   const galleryItems = [
+    // 1. RESIDENTIAL PROJECTS
     {
       id: "modern-family-home",
       title: "Modern Family Home",
-      category: "Residential",
+      category: "Residential Projects",
       location: "Surrey, UK",
       size: "4,200 sq ft",
       year: "2024",
@@ -40,64 +49,20 @@ export default function PortfolioPage() {
       services: "Residential Estimating & Quantity Take-Offs"
     },
     {
-      id: "office-building",
-      title: "Commercial Office Building",
-      category: "Commercial",
-      location: "Manchester, UK",
-      size: "12,500 sq ft",
-      year: "2023",
-      image: "/images/commercial-estimating.jpg",
-      scope: "Multi-storey commercial workplace refurbishment, glazed curtain walling, and Cat A interior layout.",
-      services: "Bill of Quantities (BOQ) & Tender Pricing"
-    },
-    {
-      id: "warehouse-logistics",
-      title: "Warehouse & Logistics Facility",
-      category: "Industrial",
-      location: "Birmingham, UK",
-      size: "45,000 sq ft",
-      year: "2023",
-      image: "/images/warehouse-industrial.jpg",
-      scope: "Portal-frame logistics depot with reinforced ground slabs, commercial loading docks, and exterior service yard.",
-      services: "Quantity Take-Offs & Cost Estimation"
-    },
-    {
-      id: "property-renovation",
-      title: "Period Property Modernisation",
-      category: "Renovation",
-      location: "London, UK",
-      size: "3,800 sq ft",
-      year: "2022",
-      image: "/images/residential-conversion.jpg",
-      scope: "Comprehensive structural remodel, mansard roof conversion, and high-specification kitchen living expansion.",
-      services: "Residential Estimating & Trade Take-Offs"
-    },
-    {
-      id: "residential-development",
-      title: "Residential Housing Scheme",
-      category: "Residential",
+      id: "residential-newbuild-dev",
+      title: "Suburban Housing Development",
+      category: "Residential Projects",
       location: "Leeds, UK",
       size: "18 Units",
-      year: "2022",
-      image: "/images/residential-estimating.jpg",
-      scope: "Multi-unit suburban residential housing scheme including external civil works and utility infrastructure.",
+      year: "2024",
+      image: "/images/residential-newbuild.jpg",
+      scope: "Multi-unit suburban residential housing scheme including external civil works, utility infrastructure, and substructure take-off.",
       services: "Bill of Quantities (BOQ) & Cost Estimation"
-    },
-    {
-      id: "retail-hospitality",
-      title: "Retail & Hospitality Scheme",
-      category: "Commercial",
-      location: "Cambridge, UK",
-      size: "8,700 sq ft",
-      year: "2023",
-      image: "/images/mixed-use-development.jpg",
-      scope: "Commercial retail and food premises shell & core build-out with acoustic partitioning and shopfront glazing.",
-      services: "Commercial Estimating & Tender Pricing"
     },
     {
       id: "contemporary-extension",
       title: "Rear Extension & Structural Steels",
-      category: "Renovation",
+      category: "Residential Projects",
       location: "Essex, UK",
       size: "1,850 sq ft",
       year: "2024",
@@ -106,9 +71,55 @@ export default function PortfolioPage() {
       services: "Residential Estimating & Take-Offs"
     },
     {
+      id: "period-property-renovation",
+      title: "Period Property Modernisation",
+      category: "Residential Projects",
+      location: "London, UK",
+      size: "3,800 sq ft",
+      year: "2023",
+      image: "/images/residential-renovation.jpg",
+      scope: "Comprehensive structural remodel, mansard roof conversion, and high-specification kitchen living expansion.",
+      services: "Residential Estimating & Trade Take-Offs"
+    },
+    {
+      id: "residential-apartments",
+      title: "Medium-Density Residential Scheme",
+      category: "Residential Projects",
+      location: "Bristol, UK",
+      size: "14 Apartments",
+      year: "2024",
+      image: "/images/residential-apartment.jpg",
+      scope: "Apartment block cost planning, communal service risers, fire-stopping detailing, and building envelope quantification.",
+      services: "BOQ Preparation & Tender Pricing"
+    },
+    {
+      id: "residential-conversion",
+      title: "Bespoke Barn Conversion",
+      category: "Residential Projects",
+      location: "Hertfordshire, UK",
+      size: "2,900 sq ft",
+      year: "2023",
+      image: "/images/residential-conversion.jpg",
+      scope: "Timber frame restoration, structural underpinning, high-efficiency insulation upgrade, and bespoke joinery schedule.",
+      services: "Residential Estimating & Quantity Take-Offs"
+    },
+
+    // 2. COMMERCIAL PROJECTS
+    {
+      id: "office-building",
+      title: "Commercial Office Building",
+      category: "Commercial Projects",
+      location: "Manchester, UK",
+      size: "12,500 sq ft",
+      year: "2023",
+      image: "/images/commercial-estimating.jpg",
+      scope: "Multi-storey commercial workplace refurbishment, glazed curtain walling, and Cat A interior layout.",
+      services: "Bill of Quantities (BOQ) & Tender Pricing"
+    },
+    {
       id: "commercial-fitout",
-      title: "Commercial Office Fit-Out",
-      category: "Commercial",
+      title: "Corporate Office CAT B Fit-Out",
+      category: "Commercial Projects",
       location: "City of London, UK",
       size: "9,200 sq ft",
       year: "2023",
@@ -117,9 +128,77 @@ export default function PortfolioPage() {
       services: "Tender Pricing & BOQ"
     },
     {
+      id: "retail-hospitality",
+      title: "Retail & Commercial Storefront",
+      category: "Commercial Projects",
+      location: "Cambridge, UK",
+      size: "8,700 sq ft",
+      year: "2023",
+      image: "/images/commercial-retail.jpg",
+      scope: "Commercial retail and food premises shell & core build-out with acoustic partitioning and shopfront glazing.",
+      services: "Commercial Estimating & Tender Pricing"
+    },
+    {
+      id: "warehouse-logistics",
+      title: "Warehouse & Logistics Facility",
+      category: "Commercial Projects",
+      location: "Birmingham, UK",
+      size: "45,000 sq ft",
+      year: "2023",
+      image: "/images/warehouse-industrial.jpg",
+      scope: "Portal-frame logistics depot with reinforced ground slabs, commercial loading docks, and exterior service yard.",
+      services: "Quantity Take-Offs & Cost Estimation"
+    },
+    {
+      id: "commercial-business-park",
+      title: "Commercial Logistics Business Park",
+      category: "Commercial Projects",
+      location: "Milton Keynes, UK",
+      size: "62,000 sq ft",
+      year: "2024",
+      image: "/images/commercial-industrial-park.jpg",
+      scope: "Multi-unit commercial trade park, service roadways, commercial utilities, and perimeter security fencing.",
+      services: "Commercial Cost Planning & Full BOQ"
+    },
+    {
+      id: "urban-commercial-tower",
+      title: "Urban Mixed Commercial Complex",
+      category: "Commercial Projects",
+      location: "Canary Wharf, London",
+      size: "34,000 sq ft",
+      year: "2024",
+      image: "/images/london-architecture.jpg",
+      scope: "High-density urban commercial building, commercial MEP services, high-speed lift shafts, and commercial facade.",
+      services: "Commercial Estimating & Value Engineering"
+    },
+
+    // 3. CONSTRUCTION DEVELOPMENTS
+    {
+      id: "mixed-use-development",
+      title: "Mixed-Use Retail & Residential",
+      category: "Construction Developments",
+      location: "Reading, UK",
+      size: "22,000 sq ft",
+      year: "2024",
+      image: "/images/mixed-use-development.jpg",
+      scope: "Scheme combining ground-floor commercial convenience units with upper-floor residential dwellings and parking.",
+      services: "Construction Cost Estimation & BOQ"
+    },
+    {
+      id: "concrete-frame-scheme",
+      title: "Multi-Storey Concrete Frame Scheme",
+      category: "Construction Developments",
+      location: "Stratford, London",
+      size: "18,500 sq ft",
+      year: "2023",
+      image: "/images/construction-cost.jpg",
+      scope: "Reinforced concrete frame, post-tensioned slabs, tower crane logistics modeling, and elemental cost plan.",
+      services: "Construction Cost Estimation"
+    },
+    {
       id: "steel-portal-frame",
       title: "Structural Steel Commercial Unit",
-      category: "Industrial",
+      category: "Construction Developments",
       location: "Kent, UK",
       size: "28,000 sq ft",
       year: "2023",
@@ -128,37 +207,72 @@ export default function PortfolioPage() {
       services: "Quantity Take-Offs & Tender Support"
     },
     {
-      id: "urban-apartments",
-      title: "Urban Mixed-Use Development",
-      category: "Commercial",
-      location: "Bristol, UK",
-      size: "14 Apartments",
-      year: "2024",
-      image: "/images/london-architecture.jpg",
-      scope: "Ground floor commercial with high-density residential apartments above, concrete frame, and modern facade.",
-      services: "Construction Cost Estimation"
-    },
-    {
-      id: "bespoke-residence",
-      title: "Bespoke Contemporary Villa",
-      category: "Residential",
-      location: "Chigwell, Essex",
-      size: "5,600 sq ft",
-      year: "2024",
-      image: "/images/hero-architecture.jpg",
-      scope: "High-end detached luxury home with subterranean basement leisure suite, cantilevered balconies, and landscaping.",
-      services: "Residential Estimating & Full BOQ"
-    },
-    {
       id: "civil-groundworks",
       title: "Site Infrastructure & Groundworks",
-      category: "Industrial",
+      category: "Construction Developments",
       location: "Hertfordshire, UK",
       size: "3.5 Acres",
       year: "2023",
       image: "/images/site-inspection.jpg",
       scope: "Cut and fill bulk earthworks, retaining structures, surface water drainage attenuation, and access roads.",
       services: "Quantity Take-Offs & Prelims Modeling"
+    },
+
+    // 4. CONSTRUCTION DETAILS
+    {
+      id: "digital-drawing-takeoff",
+      title: "Digital Drawing Take-Off & Overlay",
+      category: "Construction Details",
+      location: "Consultancy Office",
+      size: "NRM2 Calibrated",
+      year: "2024",
+      image: "/images/architectural-plans.jpg",
+      scope: "Direct electronic measurement of architectural plans with colour-coded polygon takeoffs for groundworks, masonry, and finishes.",
+      services: "Quantity Take-Offs"
+    },
+    {
+      id: "surveyor-measurement-station",
+      title: "Surveyor Take-Off Workstation",
+      category: "Construction Details",
+      location: "Consultancy Office",
+      size: "Drawing Audit",
+      year: "2024",
+      image: "/images/surveyor-tools.jpg",
+      scope: "Digital measurement and scale calibration equipment used for trade package breakdowns and structural steel schedules.",
+      services: "Precision Measurement"
+    },
+    {
+      id: "boq-measurement-schedule",
+      title: "Bill of Quantities Work Schedule",
+      category: "Construction Details",
+      location: "NRM2 Standard",
+      size: "Full Schedule",
+      year: "2024",
+      image: "/images/bill-of-quantities.jpg",
+      scope: "Itemised work sections, standard descriptions, and preliminary matrices compiled into clear spreadsheet models.",
+      services: "BOQ Preparation"
+    },
+    {
+      id: "tender-package-review",
+      title: "Tender Package & Enquiries Review",
+      category: "Construction Details",
+      location: "Commercial Bid Audit",
+      size: "Contract Package",
+      year: "2024",
+      image: "/images/tender-documents.jpg",
+      scope: "Subcontractor rate audit, trade enquiries, prelims build-up, and commercial risk register compilation.",
+      services: "Tender Pricing Support"
+    },
+    {
+      id: "senior-qs-audit",
+      title: "Senior QS Consultancy Review",
+      category: "Construction Details",
+      location: "Chigwell Office",
+      size: "Quality QA",
+      year: "2024",
+      image: "/images/about-consultancy.jpg",
+      scope: "Comprehensive independent quality assurance cross-checking mathematical takeoffs against engineering specifications.",
+      services: "Consultancy Audit & Verification"
     }
   ];
 
@@ -188,10 +302,10 @@ export default function PortfolioPage() {
               Portfolio / <span className="text-[#d4a34b]">Gallery</span>
             </h1>
             <p className="text-sm sm:text-base text-slate-300 leading-relaxed mb-6 max-w-xl">
-              Explore our completed and ongoing projects. See the quality, accuracy and expertise we bring to every construction estimation and cost consultancy service.
+              Explore our project scope and estimating expertise across UK residential builds, commercial developments, and detailed technical quantity surveying packages.
             </p>
 
-            {/* 5 Feature Badges from Screenshot 4 */}
+            {/* Feature Badges */}
             <div className="flex flex-wrap gap-2.5 mb-8">
               <div className="inline-flex items-center space-x-1.5 bg-navy-900/80 border border-slate-700/80 px-2.5 py-1.5 rounded text-xs text-slate-200">
                 <Home className="w-3.5 h-3.5 text-[#d4a34b]" />
@@ -202,217 +316,122 @@ export default function PortfolioPage() {
                 <span>Commercial Projects</span>
               </div>
               <div className="inline-flex items-center space-x-1.5 bg-navy-900/80 border border-slate-700/80 px-2.5 py-1.5 rounded text-xs text-slate-200">
-                <Warehouse className="w-3.5 h-3.5 text-[#d4a34b]" />
-                <span>Industrial Projects</span>
+                <Layers className="w-3.5 h-3.5 text-[#d4a34b]" />
+                <span>Construction Developments</span>
               </div>
               <div className="inline-flex items-center space-x-1.5 bg-navy-900/80 border border-slate-700/80 px-2.5 py-1.5 rounded text-xs text-slate-200">
-                <Wrench className="w-3.5 h-3.5 text-[#d4a34b]" />
-                <span>Renovations &amp; Refurbishments</span>
-              </div>
-              <div className="inline-flex items-center space-x-1.5 bg-navy-900/80 border border-slate-700/80 px-2.5 py-1.5 rounded text-xs text-slate-200">
-                <Coins className="w-3.5 h-3.5 text-[#d4a34b]" />
-                <span>Estimation &amp; Cost Consultancy</span>
+                <Compass className="w-3.5 h-3.5 text-[#d4a34b]" />
+                <span>Construction Details</span>
               </div>
             </div>
 
             {/* CTA Button */}
             <div>
-              <a
-                href="#gallery-grid"
-                className="inline-flex items-center justify-center bg-[#d4a34b] hover:bg-[#c39139] text-[#081a2e] font-bold px-5 py-2.5 rounded text-xs sm:text-sm tracking-wide shadow-md transition-all space-x-1.5"
+              <Link
+                to="/request-a-quote"
+                className="inline-flex items-center justify-center bg-[#d4a34b] hover:bg-[#c39139] text-[#081a2e] font-bold px-6 py-3 rounded text-xs sm:text-sm tracking-wide shadow-md transition-all space-x-2"
               >
-                <span>View Our Work</span>
+                <span>Request a Quote</span>
                 <ArrowRight className="w-3.5 h-3.5 ml-1" />
-              </a>
+              </Link>
             </div>
           </div>
         </div>
       </section>
 
-      {/* 2. GALLERY FILTER & GRID: Matches Screenshot 4 */}
-      <section id="gallery-grid" className="py-14 sm:py-20 bg-slate-50">
+      {/* 2. GALLERY CONTROLS & GRID */}
+      <section className="py-12 sm:py-16 bg-slate-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-            
-            {/* Gallery Left (8 cols): Filter Buttons & 6 to 12 Cards Grid */}
-            <div className="lg:col-span-8 space-y-6">
-              
-              {/* Filter Tabs */}
-              <div className="flex flex-wrap gap-2 pb-2">
-                {categories.map((cat) => (
-                  <button
-                    key={cat}
-                    onClick={() => setSelectedCategory(cat)}
-                    className={`px-4 py-2 rounded text-xs font-bold transition-all ${
-                      selectedCategory === cat
-                        ? 'bg-[#081a2e] text-[#d4a34b] shadow-sm'
-                        : 'bg-white text-slate-600 hover:bg-slate-100 border border-slate-200'
-                    }`}
-                  >
-                    {cat}
-                  </button>
-                ))}
-              </div>
-
-              {/* Illustrative Notice per prompt instructions */}
-              <div className="flex items-center space-x-2 text-[11px] text-slate-500 bg-white p-3 rounded border border-slate-200">
-                <Info className="w-3.5 h-3.5 text-[#b58734] shrink-0" />
-                <span>Visual Project Typology Examples — illustrating representative UK construction scopes supported by our consultancy.</span>
-              </div>
-
-              {/* Grid of Cards (2 columns on tablet/desktop) */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-                {filteredItems.map((item) => (
-                  <div 
-                    key={item.id}
-                    onClick={() => setActiveProject(item)}
-                    className="bg-white rounded-lg border border-slate-200 overflow-hidden shadow-sm hover:shadow-md transition-all cursor-pointer group hover:border-[#d4a34b]/60 flex flex-col justify-between"
-                  >
-                    <div className="relative h-48 bg-slate-100 overflow-hidden">
-                      <img 
-                        src={item.image} 
-                        alt={item.title} 
-                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                      />
-                      <div className="absolute top-2.5 left-2.5 bg-[#081a2e]/90 text-white text-[10px] font-bold px-2 py-0.5 rounded">
-                        {item.category}
-                      </div>
-                      <div className="absolute inset-0 bg-[#081a2e]/30 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                        <span className="bg-[#081a2e] text-[#d4a34b] text-xs font-bold px-3 py-1.5 rounded flex items-center space-x-1 shadow">
-                          <Eye className="w-3.5 h-3.5 mr-1" />
-                          <span>View Details</span>
-                        </span>
-                      </div>
-                    </div>
-
-                    <div className="p-4 flex-1 flex flex-col justify-between">
-                      <div>
-                        <h3 className="text-sm font-bold text-[#081a2e] group-hover:text-[#b58734] transition-colors leading-snug">
-                          {item.title}
-                        </h3>
-                        <p className="text-[11px] text-slate-500 mt-1 line-clamp-2">
-                          {item.scope}
-                        </p>
-                      </div>
-
-                      <div className="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between text-[11px] text-slate-500">
-                        <div className="flex items-center space-x-1">
-                          <MapPin className="w-3 h-3 text-[#b58734]" />
-                          <span>{item.location}</span>
-                        </div>
-                        <div className="flex items-center space-x-3">
-                          <span className="flex items-center space-x-1">
-                            <Calendar className="w-3 h-3 text-slate-400" />
-                            <span>{item.year}</span>
-                          </span>
-                          <span className="flex items-center space-x-1">
-                            <Maximize2 className="w-3 h-3 text-slate-400" />
-                            <span>{item.size}</span>
-                          </span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                ))}
-              </div>
-
+          {/* Informative Label */}
+          <div className="bg-white border border-slate-200 rounded-lg p-4 mb-8 flex items-start space-x-3 text-xs text-slate-600 shadow-sm">
+            <Info className="w-4 h-4 text-[#b58734] shrink-0 mt-0.5" />
+            <div>
+              <span className="font-bold text-[#081a2e]">Portfolio &amp; Scope Showcase:</span> The examples below illustrate the typologies, scale, and technical standards of UK residential schemes, commercial facilities, and construction details supported by Orion Build Cost quantity surveying and estimating services.
             </div>
-
-            {/* Sidebar Right (4 cols): Highlights & Standards Card matching Screenshot 4 */}
-            <div className="lg:col-span-4 space-y-6">
-              
-              <div className="bg-white rounded-lg border border-slate-200 p-6 shadow-sm space-y-6">
-                <div>
-                  <div className="text-[11px] font-bold uppercase tracking-wider text-[#b58734] mb-1">
-                    — CONSULTANCY CAPABILITIES
-                  </div>
-                  <h3 className="text-base font-bold text-[#081a2e]">
-                    Consultancy Scope &amp; Expertise
-                  </h3>
-                </div>
-
-                <div className="space-y-4">
-                  <div className="flex items-start space-x-3">
-                    <div className="w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center text-[#081a2e] shrink-0">
-                      <Home className="w-4 h-4 text-[#b58734]" />
-                    </div>
-                    <div>
-                      <h4 className="text-xs font-bold text-[#081a2e]">Residential &amp; Commercial</h4>
-                      <p className="text-[11px] text-slate-500 mt-0.5">
-                        Supporting single dwellings, extensions, commercial fit-outs, and multi-unit developments.
-                      </p>
-                    </div>
-                  </div>
-
-                  <div className="flex items-start space-x-3">
-                    <div className="w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center text-[#081a2e] shrink-0">
-                      <FileCheck2 className="w-4 h-4 text-[#b58734]" />
-                    </div>
-                    <div>
-                      <h4 className="text-xs font-bold text-[#081a2e]">UK Industry Standards</h4>
-                      <p className="text-[11px] text-slate-500 mt-0.5">
-                        Measurement aligned with standard UK construction conventions (NRM / SMM7 methods).
-                      </p>
-                    </div>
-                  </div>
-
-                  <div className="flex items-start space-x-3">
-                    <div className="w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center text-[#081a2e] shrink-0">
-                      <Layers className="w-4 h-4 text-[#b58734]" />
-                    </div>
-                    <div>
-                      <h4 className="text-xs font-bold text-[#081a2e]">Itemised Bills &amp; Take-Offs</h4>
-                      <p className="text-[11px] text-slate-500 mt-0.5">
-                        Delivered in structured Excel workbooks ready for sub-contractor pricing and tender submission.
-                      </p>
-                    </div>
-                  </div>
-
-                  <div className="flex items-start space-x-3">
-                    <div className="w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center text-[#081a2e] shrink-0">
-                      <Coins className="w-4 h-4 text-[#b58734]" />
-                    </div>
-                    <div>
-                      <h4 className="text-xs font-bold text-[#081a2e]">Contractor &amp; Developer Focused</h4>
-                      <p className="text-[11px] text-slate-500 mt-0.5">
-                        Dedicated overflow estimating support helping UK building businesses win profitable contracts.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Sub-card CTA */}
-                <div className="pt-4 border-t border-slate-100">
-                  <div className="p-4 rounded-lg bg-[#081a2e] text-white flex flex-col justify-between space-y-3">
-                    <div>
-                      <div className="text-xs font-bold text-white">Let's Build Your Next Project</div>
-                      <p className="text-[11px] text-slate-300 mt-1">
-                        Get in touch for a tailored estimate and expert advice.
-                      </p>
-                    </div>
-                    <Link
-                      to="/request-a-quote"
-                      className="inline-flex items-center justify-center bg-[#d4a34b] hover:bg-[#c39139] text-[#081a2e] font-bold py-2 px-3 rounded text-xs transition-colors space-x-1"
-                    >
-                      <span>Request a Quote</span>
-                      <ArrowRight className="w-3 h-3 ml-1" />
-                    </Link>
-                  </div>
-                </div>
-              </div>
-
-            </div>
-
           </div>
+
+          {/* Filter Pills matching Screenshot 4 */}
+          <div className="flex flex-wrap items-center justify-center gap-2 mb-10">
+            {categories.map((cat) => (
+              <button
+                key={cat}
+                onClick={() => setSelectedCategory(cat)}
+                className={`px-4 py-2 rounded-full text-xs font-bold transition-all ${
+                  selectedCategory === cat
+                    ? 'bg-[#081a2e] text-white shadow-sm'
+                    : 'bg-white text-slate-600 border border-slate-200 hover:border-[#d4a34b]/60 hover:text-[#081a2e]'
+                }`}
+              >
+                {cat}
+              </button>
+            ))}
+          </div>
+
+          {/* Project Cards Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+            {filteredItems.map((item) => (
+              <div 
+                key={item.id}
+                className="bg-white rounded-xl border border-slate-200 overflow-hidden shadow-sm hover:shadow-md transition-all flex flex-col group hover:border-[#d4a34b]/60"
+              >
+                {/* Image */}
+                <div className="h-56 bg-slate-100 relative overflow-hidden">
+                  <img 
+                    src={item.image} 
+                    alt={item.title} 
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                  />
+                  <div className="absolute top-3 left-3 bg-[#081a2e]/90 text-[#d4a34b] text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded">
+                    {item.category}
+                  </div>
+                  <div className="absolute top-3 right-3 bg-white/90 text-slate-700 text-[10px] font-semibold px-2 py-0.5 rounded shadow-sm">
+                    {item.size}
+                  </div>
+                </div>
+
+                {/* Content */}
+                <div className="p-6 flex-1 flex flex-col justify-between">
+                  <div>
+                    <div className="flex items-center text-[11px] text-slate-500 mb-1.5 space-x-1.5">
+                      <MapPin className="w-3 h-3 text-[#b58734]" />
+                      <span>{item.location}</span>
+                    </div>
+
+                    <h3 className="text-base font-bold text-[#081a2e] mb-2 group-hover:text-[#b58734] transition-colors leading-snug">
+                      {item.title}
+                    </h3>
+
+                    <p className="text-xs text-slate-500 leading-relaxed mb-4">
+                      {item.scope}
+                    </p>
+                  </div>
+
+                  <div className="pt-3 border-t border-slate-100 flex items-center justify-between">
+                    <span className="text-[11px] font-semibold text-slate-600 truncate max-w-[190px]">
+                      {item.services}
+                    </span>
+                    <button
+                      onClick={() => setActiveProject(item)}
+                      className="text-xs font-bold text-[#b58734] hover:text-[#916720] inline-flex items-center space-x-1"
+                    >
+                      <span>View Scope</span>
+                      <ArrowRight className="w-3 h-3 ml-0.5" />
+                    </button>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+
         </div>
       </section>
 
-      {/* 3. MODAL FOR ACCESSIBLE IMAGE VIEWING */}
+      {/* Modal View for Project Scope */}
       {activeProject && (
-        <div className="fixed inset-0 z-50 overflow-y-auto bg-navy-950/80 backdrop-blur-sm flex items-center justify-center p-4">
-          <div className="bg-white rounded-lg shadow-2xl max-w-xl w-full overflow-hidden border border-slate-200">
-            <div className="relative h-64 bg-slate-900">
+        <div className="fixed inset-0 z-50 bg-[#081a2e]/70 flex items-center justify-center p-4">
+          <div className="bg-white rounded-xl max-w-xl w-full overflow-hidden shadow-2xl border border-slate-200">
+            <div className="relative h-60 bg-slate-100">
               <img 
                 src={activeProject.image} 
                 alt={activeProject.title} 
@@ -425,53 +444,58 @@ export default function PortfolioPage() {
               >
                 <X className="w-4 h-4" />
               </button>
-              <div className="absolute bottom-3 left-4 text-white">
-                <span className="bg-[#d4a34b] text-[#081a2e] font-bold text-[10px] px-2 py-0.5 rounded uppercase">
-                  {activeProject.category}
-                </span>
-                <h3 className="text-xl font-bold mt-1">{activeProject.title}</h3>
-                <span className="text-xs text-slate-300">{activeProject.location} • {activeProject.size}</span>
+              <div className="absolute bottom-3 left-3 bg-[#081a2e]/90 text-[#d4a34b] text-xs font-bold px-3 py-1 rounded">
+                {activeProject.category}
               </div>
             </div>
 
-            <div className="p-6 space-y-4">
-              <div>
-                <h4 className="text-xs font-bold uppercase tracking-wider text-slate-400">Project Scope</h4>
-                <p className="text-xs sm:text-sm text-slate-600 mt-1 leading-relaxed">{activeProject.scope}</p>
+            <div className="p-6">
+              <div className="flex items-center text-xs text-slate-500 mb-1">
+                <MapPin className="w-3.5 h-3.5 text-[#b58734] mr-1" />
+                <span>{activeProject.location}</span>
+                <span className="mx-2">•</span>
+                <span>{activeProject.size}</span>
               </div>
 
-              <div>
-                <h4 className="text-xs font-bold uppercase tracking-wider text-slate-400">Consultancy Services Provided</h4>
-                <p className="text-xs sm:text-sm text-[#081a2e] font-semibold mt-1">{activeProject.services}</p>
+              <h3 className="text-xl font-bold text-[#081a2e] mb-3">
+                {activeProject.title}
+              </h3>
+
+              <p className="text-xs text-slate-600 leading-relaxed mb-4">
+                {activeProject.scope}
+              </p>
+
+              <div className="bg-slate-50 p-3.5 rounded-lg border border-slate-200 text-xs text-slate-700 mb-6">
+                <span className="font-bold text-[#081a2e] block mb-1">Consultancy Scope:</span>
+                {activeProject.services}
               </div>
 
-              <div className="pt-3 border-t border-slate-200 flex items-center justify-between">
+              <div className="flex items-center justify-between gap-3">
+                <button
+                  onClick={() => setActiveProject(null)}
+                  className="px-4 py-2 border border-slate-200 rounded text-xs font-semibold text-slate-600 hover:bg-slate-50"
+                >
+                  Close
+                </button>
                 <Link
                   to="/request-a-quote"
-                  onClick={() => setActiveProject(null)}
-                  className="bg-[#d4a34b] hover:bg-[#c39139] text-[#081a2e] font-bold px-4 py-2 rounded text-xs transition-colors"
+                  className="bg-[#d4a34b] hover:bg-[#c39139] text-[#081a2e] font-bold px-5 py-2 rounded text-xs transition-colors"
                 >
                   Request a Quote for Similar Project
                 </Link>
-                <button
-                  onClick={() => setActiveProject(null)}
-                  className="text-xs text-slate-500 hover:text-slate-800"
-                >
-                  Close Window
-                </button>
               </div>
             </div>
           </div>
         </div>
       )}
 
-      {/* 4. BOTTOM CTA BANNER: Matches Screenshot 4 */}
+      {/* 3. BOTTOM CTA BANNER: Matches Screenshot 4 */}
       <QuoteBanner 
-        tagline="QUALITY WORK. REAL RESULTS."
-        title="Your Vision, Our Expertise."
-        middleTag="From small residential builds to large commercial developments —"
-        middleDesc="we're here to bring your project to life, accurately and efficiently."
-        middleIcon="handshake"
+        tagline="READY TO DISCUSS YOUR PROJECT?"
+        title="Get a Quote for Your Construction Project"
+        middleTag="Send us your drawings or specifications —"
+        middleDesc="we'll provide a fixed quotation for your project."
+        middleIcon="mail"
         buttonText="Request a Quote"
         buttonLink="/request-a-quote"
         theme="gold"

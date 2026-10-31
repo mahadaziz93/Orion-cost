@@ -17,11 +17,11 @@ export default function Footer() {
           {/* Brand Column (4 cols) */}
           <div className="lg:col-span-3 space-y-4">
             <Link to="/" className="inline-block" aria-label="Orion Build Cost Homepage">
-              <div className="bg-white rounded p-1.5 inline-block shadow-sm">
+              <div className="bg-white rounded-lg p-2.5 inline-block shadow-md">
                 <img 
                   src={companyInfo.logo} 
                   alt="Orion Build Cost" 
-                  className="h-10 w-auto object-contain"
+                  className="h-14 sm:h-16 md:h-18 w-auto object-contain max-w-[220px]"
                 />
               </div>
             </Link>

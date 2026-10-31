@@ -25,3 +25,5 @@ dist-ssr
 
 # Temporary audit screenshots
 audit_screenshots
+scripts/screenshots
+scripts/audit-results.json

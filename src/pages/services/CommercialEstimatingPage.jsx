@@ -16,6 +16,45 @@ import Breadcrumbs from '../../components/Breadcrumbs';
 import QuoteBanner from '../../components/QuoteBanner';
 
 export default function CommercialEstimatingPage() {
+  const commercialShowcase = [
+    {
+      title: "Commercial Office Buildings",
+      type: "Offices & Workspaces",
+      desc: "Robust cost plans for multi-storey corporate offices, curtain wall facades, high-efficiency MEP services, and core structures.",
+      image: "/images/commercial-estimating.jpg"
+    },
+    {
+      title: "CAT A & CAT B Commercial Fit-Outs",
+      type: "Interior Fit-Out",
+      desc: "Detailed measurement of acoustic ceilings, partitions, raised access flooring, lighting, and bespoke commercial workstations.",
+      image: "/images/office-fitout-modern.jpg"
+    },
+    {
+      title: "Retail Outlets & High Street Stores",
+      type: "Retail & Commercial",
+      desc: "Estimating for supermarket shells, retail park units, shopfront glazing, and customer-facing commercial environments.",
+      image: "/images/commercial-retail.jpg"
+    },
+    {
+      title: "Industrial Logistics & Distribution",
+      type: "Industrial Facility",
+      desc: "Accurate steel portal frame takeoff, heavy-duty floor slabs, loading bays, dock levelers, and external yard surfacing.",
+      image: "/images/warehouse-industrial.jpg"
+    },
+    {
+      title: "Commercial Business Parks",
+      type: "Business Park",
+      desc: "Site infrastructure, access roads, car parking, multi-unit business suites, and external commercial utilities.",
+      image: "/images/commercial-industrial-park.jpg"
+    },
+    {
+      title: "Mixed-Use Urban Developments",
+      type: "Mixed-Use Scheme",
+      desc: "Comprehensive feasibility and commercial estimates for schemes combining ground-floor commercial units with upper-floor developments.",
+      image: "/images/london-architecture.jpg"
+    }
+  ];
+
   return (
     <div className="bg-slate-50 min-h-screen">
       
@@ -23,8 +62,8 @@ export default function CommercialEstimatingPage() {
       <section className="bg-[#081a2e] text-white py-12 sm:py-16 relative overflow-hidden border-b border-navy-800">
         <div className="absolute right-0 top-0 bottom-0 w-full lg:w-1/2 z-0">
           <img 
-            src="/images/construction-cost.jpg" 
-            alt="Commercial construction site with structural framework and drawings" 
+            src="/images/commercial-estimating.jpg" 
+            alt="Modern commercial glass office building" 
             className="w-full h-full object-cover object-center"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-[#081a2e] via-[#081a2e]/90 to-transparent"></div>
@@ -44,7 +83,7 @@ export default function CommercialEstimatingPage() {
               Accurate and reliable cost estimates for commercial projects, helping businesses, developers and contractors plan, bid and build with confidence.
             </p>
 
-            {/* 4 Feature Badges from Screenshot 2 */}
+            {/* 4 Feature Badges */}
             <div className="flex flex-wrap gap-2.5 mb-8">
               <div className="inline-flex items-center space-x-2 bg-navy-900/80 border border-slate-700/80 px-3 py-1.5 rounded text-xs text-slate-200">
                 <Building2 className="w-3.5 h-3.5 text-[#d4a34b]" />
@@ -98,7 +137,7 @@ export default function CommercialEstimatingPage() {
                   We deliver precise and detailed cost estimates for commercial construction projects of all sizes — from office buildings and retail spaces to industrial facilities and mixed-use developments. Our team ensures accuracy, transparency and flexibility, helping you make informed decisions and stay on budget.
                 </p>
 
-                {/* 4 Checkmarks matching Screenshot 2 */}
+                {/* 4 Checkmarks */}
                 <div className="space-y-2.5">
                   <div className="flex items-center space-x-2.5 text-xs sm:text-sm text-slate-700 font-medium">
                     <div className="w-4 h-4 rounded-full bg-[#fcf8ee] border border-[#d4a34b] text-[#b58734] flex items-center justify-center shrink-0">
@@ -198,9 +237,9 @@ export default function CommercialEstimatingPage() {
                 </div>
               </div>
 
-              {/* Scope & Brief Dependent Callout */}
+              {/* Scope Callout */}
               <div className="p-4 rounded-lg bg-slate-50/80 border border-slate-200/90 text-xs text-slate-600 leading-relaxed">
-                <span className="font-bold text-[#081a2e]">Commercial Scope Guidance:</span> All commercial estimates reflect the specific project parameters, site logistics, CAT A or CAT B specification levels, and tender requirements submitted. No automatic or generic calculations are used.
+                <span className="font-bold text-[#081a2e]">Commercial Transparency:</span> We structure our commercial deliverables to integrate seamlessly with JCT standard forms of contract, Employer's Requirements, and commercial banking drawdown requirements.
               </div>
 
             </div>
@@ -278,7 +317,7 @@ export default function CommercialEstimatingPage() {
                   </h4>
                 </div>
                 <p className="text-xs text-slate-300 leading-relaxed mb-5">
-                  Get in touch for a tailored solution and competitive quote.
+                  Get in touch for a tailored solution and a competitive quote.
                 </p>
                 <Link
                   to="/request-a-quote?service=commercial-estimating"
@@ -291,6 +330,63 @@ export default function CommercialEstimatingPage() {
 
             </div>
 
+          </div>
+        </div>
+      </section>
+
+      {/* 2B. COMMERCIAL PROJECT TYPES SHOWCASE (6 Dedicated Commercial Images) */}
+      <section className="py-14 sm:py-18 bg-white border-t border-slate-200/80">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="mb-10 text-center">
+            <span className="text-[11px] font-bold uppercase tracking-wider text-[#b58734] block mb-1">
+              — COMMERCIAL SECTOR EXPERTISE
+            </span>
+            <h3 className="text-2xl sm:text-3xl font-extrabold text-[#081a2e]">
+              Commercial Facilities We Estimate
+            </h3>
+            <p className="mt-2 text-xs sm:text-sm text-slate-600 max-w-2xl mx-auto">
+              From corporate headquarters and logistics parks to boutique retail fit-outs, our commercial quantity surveyors deliver institutional precision.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {commercialShowcase.map((item, idx) => (
+              <div 
+                key={idx}
+                className="rounded-xl border border-slate-200 overflow-hidden shadow-sm hover:shadow-md transition-all group flex flex-col justify-between bg-white"
+              >
+                <div>
+                  <div className="h-48 overflow-hidden bg-slate-100 relative">
+                    <img 
+                      src={item.image} 
+                      alt={item.title} 
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                    />
+                    <div className="absolute top-3 left-3 bg-[#081a2e]/90 text-[#d4a34b] text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded">
+                      {item.type}
+                    </div>
+                  </div>
+                  <div className="p-5">
+                    <h4 className="text-base font-bold text-[#081a2e] mb-1.5 group-hover:text-[#b58734] transition-colors">
+                      {item.title}
+                    </h4>
+                    <p className="text-xs text-slate-500 leading-relaxed">
+                      {item.desc}
+                    </p>
+                  </div>
+                </div>
+
+                <div className="px-5 pb-5 pt-0">
+                  <Link
+                    to="/request-a-quote?service=commercial-estimating"
+                    className="text-xs font-bold text-[#b58734] hover:text-[#916720] inline-flex items-center space-x-1"
+                  >
+                    <span>Request Estimate</span>
+                    <ArrowRight className="w-3 h-3 ml-1" />
+                  </Link>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>

@@ -10,7 +10,13 @@ import {
   ArrowRight, 
   Mail,
   HardHat,
-  FileText
+  FileText,
+  Calculator,
+  Zap,
+  ShieldCheck,
+  Users,
+  Clock,
+  Handshake
 } from 'lucide-react';
 import { companyInfo } from '../data/companyInfo';
 import QuoteBanner from '../components/QuoteBanner';
@@ -18,166 +24,278 @@ import QuoteBanner from '../components/QuoteBanner';
 export default function HomePage() {
   const serviceCards = [
     {
-      title: "Quantity Take-Offs",
-      desc: "Accurate measurement and quantity analysis from your drawings.",
-      link: "/services/quantity-take-offs",
-      icon: Layers,
-    },
-    {
-      title: "Bill of Quantities (BOQ)",
-      desc: "Structured, itemised schedules for better cost control and tendering.",
-      link: "/services/bill-of-quantities",
-      icon: FileSpreadsheet,
-    },
-    {
-      title: "Tender Pricing",
-      desc: "Competitive and detailed pricing support for your tender submissions.",
-      link: "/services/tender-pricing",
-      icon: HardHat,
-    },
-    {
       title: "Residential Estimating",
-      desc: "New builds, extensions and renovations with precise cost planning.",
+      desc: "Accurate cost estimates for residential projects, extensions and refurbishments.",
       link: "/services/residential-estimating",
+      image: "/images/residential-estimating.jpg",
       icon: Home,
     },
     {
       title: "Commercial Estimating",
-      desc: "Offices, retail, industrial and large-scale commercial developments.",
+      desc: "Expert estimating services for commercial buildings and large-scale developments.",
       link: "/services/commercial-estimating",
+      image: "/images/commercial-estimating.jpg",
       icon: Building2,
     },
     {
+      title: "Quantity Take-Offs",
+      desc: "Precise quantity take-offs for accurate measurement and planning.",
+      link: "/services/quantity-take-offs",
+      image: "/images/quantity-takeoffs.jpg",
+      icon: Calculator,
+    },
+    {
+      title: "BOQ Preparation",
+      desc: "Detailed Bills of Quantities for transparent and reliable project documentation.",
+      link: "/services/bill-of-quantities",
+      image: "/images/bill-of-quantities.jpg",
+      icon: FileSpreadsheet,
+    },
+    {
+      title: "Tender Pricing",
+      desc: "Competitive and accurate pricing for construction tenders.",
+      link: "/services/tender-pricing",
+      image: "/images/tender-pricing.jpg",
+      icon: TrendingUp,
+    },
+    {
       title: "Construction Cost Estimation",
-      desc: "Comprehensive cost advice based on your project requirements.",
+      desc: "Comprehensive cost estimation for projects of all sizes.",
       link: "/services/construction-cost-estimation",
-      icon: Coins,
+      image: "/images/construction-cost.jpg",
+      icon: HardHat,
     },
   ];
 
   return (
     <div className="bg-white">
       
-      {/* 1. HERO SECTION: Matches Screenshot 1 with navy left block & architectural luxury house on right */}
-      <section className="relative bg-[#081a2e] text-white overflow-hidden min-h-[580px] flex items-center">
-        {/* Background architectural image on the right with smooth dark gradient fade to left */}
+      {/* 1. HERO SECTION: Matches Exact Design Mockup 1 */}
+      <section className="relative bg-[#081a2e] text-white overflow-hidden min-h-[580px] lg:min-h-[640px] flex items-center">
+        {/* Background architectural & estimating image on the right with smooth dark gradient fade to left */}
         <div className="absolute right-0 top-0 bottom-0 w-full lg:w-3/5 z-0">
           <img 
-            src="/images/luxury-home.jpg" 
-            alt="Modern UK residential luxury architecture" 
-            className="w-full h-full object-cover object-center"
+            src="/images/hero-estimating.jpg" 
+            alt="Professional UK construction estimating and quantity surveying plans" 
+            className="w-full h-full object-cover object-center lg:object-right"
           />
           {/* Subtle gradient overlay ensuring text on left is sharp and readable */}
-          <div className="absolute inset-0 bg-gradient-to-r from-[#081a2e] via-[#081a2e]/90 to-transparent lg:via-[#081a2e]/70"></div>
+          <div className="absolute inset-0 bg-gradient-to-r from-[#081a2e] via-[#081a2e]/95 to-transparent lg:via-[#081a2e]/80"></div>
           <div className="absolute inset-0 bg-gradient-to-t from-[#081a2e] via-transparent to-transparent lg:hidden"></div>
         </div>
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24 w-full">
           <div className="max-w-2xl">
             
-            {/* Tagline */}
-            <div className="text-[11px] sm:text-xs font-bold text-slate-300 uppercase tracking-widest mb-3">
-              QUANTITY SURVEYING &amp; CONSTRUCTION COST CONSULTANCY
+            {/* Category Pill Tagline */}
+            <div className="inline-flex items-center space-x-2 text-[11px] sm:text-xs font-bold text-[#d4a34b] uppercase tracking-wider mb-4 bg-navy-900/60 px-3 py-1 rounded border border-[#d4a34b]/30">
+              <Building2 className="w-3.5 h-3.5 text-[#d4a34b]" />
+              <span>CONSTRUCTION ESTIMATING SERVICES</span>
             </div>
 
             {/* Headline */}
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-[1.1] mb-5">
-              Plan Your Build <br />
-              <span className="text-[#d4a34b]">
-                With Confidence.
-              </span>
+            <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-[1.15] mb-5">
+              Accurate Estimates.<br />
+              Better Bids. Stronger<br />
+              Margins.
             </h1>
 
             {/* Supporting Copy */}
             <p className="text-sm sm:text-base text-slate-300 leading-relaxed font-normal mb-8 max-w-xl">
-              Professional quantity surveying and construction cost consultancy services for UK building projects.
+              Professional construction estimating, quantity take-offs and BOQ preparation for UK builders, contractors and developers.
             </p>
 
-            {/* Two CTAs */}
-            <div className="flex flex-wrap items-center gap-3.5">
-              <Link
-                to="/request-a-quote"
-                className="inline-flex items-center justify-center bg-[#d4a34b] hover:bg-[#c39139] text-[#081a2e] font-bold px-6 py-3 rounded-md text-xs sm:text-sm tracking-wide shadow-md transition-all space-x-2"
-              >
-                <Mail className="w-4 h-4 text-[#081a2e]" />
-                <span>Request a Quote</span>
-              </Link>
+            {/* CTA Button and Subtext */}
+            <div className="space-y-3">
+              <div className="flex flex-wrap items-center gap-3.5">
+                <Link
+                  to="/request-a-quote"
+                  className="inline-flex items-center justify-center bg-[#d4a34b] hover:bg-[#c39139] text-[#081a2e] font-extrabold px-7 py-3.5 rounded text-xs sm:text-sm tracking-wide shadow-md transition-all space-x-2"
+                >
+                  <span>REQUEST A FREE QUOTE →</span>
+                </Link>
 
-              <Link
-                to="/services"
-                className="inline-flex items-center justify-center bg-[#0d223a]/80 hover:bg-[#0d223a] text-white font-semibold px-5 py-3 rounded-md border border-slate-600/70 hover:border-slate-400 text-xs sm:text-sm tracking-wide transition-all space-x-1.5"
-              >
-                <span>Explore Our Services</span>
-                <ArrowRight className="w-3.5 h-3.5 ml-1" />
-              </Link>
+                <Link
+                  to="/services"
+                  className="inline-flex items-center justify-center bg-[#0d223a]/80 hover:bg-[#0d223a] text-white font-semibold px-5 py-3.5 rounded border border-slate-600/70 hover:border-slate-400 text-xs sm:text-sm tracking-wide transition-all space-x-1.5"
+                >
+                  <span>Explore Our Services</span>
+                  <ArrowRight className="w-3.5 h-3.5 ml-1" />
+                </Link>
+              </div>
+
+              <p className="text-xs text-slate-400 font-normal">
+                Send your drawings for a project-specific quotation.
+              </p>
             </div>
 
           </div>
         </div>
       </section>
 
-      {/* 2. OUR SERVICES SECTION: Matches Screenshot 1 with 6 clean white cards */}
-      <section className="py-14 sm:py-20 bg-white">
+      {/* 1B. TRUST INDICATORS BAR: Matches Exact Design Mockup 1 */}
+      <section className="bg-white border-b border-slate-200 py-6 sm:py-7">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 divide-y md:divide-y-0 md:divide-x divide-slate-200">
+            
+            {/* Fast Response */}
+            <div className="flex items-center space-x-4 pt-3 md:pt-0 md:pr-4">
+              <div className="w-12 h-12 rounded-full bg-[#fdf8ee] border border-[#d4a34b]/40 flex items-center justify-center shrink-0 text-[#b58734]">
+                <Zap className="w-5 h-5 text-[#b58734] fill-[#fcf3dc]" />
+              </div>
+              <div>
+                <div className="text-sm font-bold text-[#081a2e]">Fast Response</div>
+                <div className="text-xs text-slate-500 font-medium">24–48 Hours</div>
+              </div>
+            </div>
+
+            {/* No Obligation */}
+            <div className="flex items-center space-x-4 pt-3 md:pt-0 md:px-6">
+              <div className="w-12 h-12 rounded-full bg-[#fdf8ee] border border-[#d4a34b]/40 flex items-center justify-center shrink-0 text-[#b58734]">
+                <ShieldCheck className="w-5 h-5 text-[#b58734]" />
+              </div>
+              <div>
+                <div className="text-sm font-bold text-[#081a2e]">No Obligation</div>
+                <div className="text-xs text-slate-500 font-medium">Get a quote with no commitment</div>
+              </div>
+            </div>
+
+            {/* Expert Advice */}
+            <div className="flex items-center space-x-4 pt-3 md:pt-0 md:pl-6">
+              <div className="w-12 h-12 rounded-full bg-[#fdf8ee] border border-[#d4a34b]/40 flex items-center justify-center shrink-0 text-[#b58734]">
+                <Users className="w-5 h-5 text-[#b58734]" />
+              </div>
+              <div>
+                <div className="text-sm font-bold text-[#081a2e]">Expert Advice</div>
+                <div className="text-xs text-slate-500 font-medium">Support from experienced estimators</div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      {/* 2. OUR SERVICES SECTION: Matches Exact Design Mockup 2 (3x2 Grid + Slogan Strip) */}
+      <section className="py-16 sm:py-20 bg-slate-50/60">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
-          <div className="mb-10">
-            <div className="text-xs font-bold uppercase tracking-wider text-[#b58734] mb-1">
-              — OUR SERVICES
-            </div>
-            <h2 className="text-2xl sm:text-3xl font-extrabold text-[#081a2e]">
-              Expert Support for Every Stage
+          <div className="text-center mb-12">
+            <h2 className="text-3xl sm:text-4xl font-extrabold text-[#081a2e] tracking-tight">
+              Our <span className="text-[#d4a34b]">Services</span>
             </h2>
-            <p className="mt-2 text-xs sm:text-sm text-slate-500 max-w-2xl leading-relaxed">
-              From initial planning to final construction, we provide accurate, detailed and reliable cost consultancy services to help you build with confidence.
+            <p className="mt-2.5 text-xs sm:text-sm text-slate-600 max-w-2xl mx-auto font-medium">
+              Professional Quantity Surveying and Cost Consultancy Services
             </p>
           </div>
 
-          {/* 6 Core Service Cards Row */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-6 gap-4">
+          {/* 6 Core Service Cards in 3x2 Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
             {serviceCards.map((service, idx) => {
               const Icon = service.icon;
               return (
                 <div 
                   key={idx}
-                  className="bg-white rounded-lg border border-slate-200/90 p-5 shadow-sm hover:shadow-md transition-all flex flex-col justify-between group hover:border-[#d4a34b]/60"
+                  className="bg-white rounded-xl border border-slate-200 overflow-hidden shadow-sm hover:shadow-md transition-all flex flex-col group hover:border-[#d4a34b]/60"
                 >
-                  <div>
-                    {/* Icon in blue border/circle */}
-                    <div className="w-10 h-10 rounded-lg bg-slate-50 border border-slate-200 flex items-center justify-center text-[#081a2e] mb-4 group-hover:bg-[#fcf8ee] group-hover:border-[#d4a34b]/40 group-hover:text-[#b58734] transition-colors">
-                      <Icon className="w-5 h-5" />
-                    </div>
-
-                    <h3 className="text-sm font-bold text-[#081a2e] leading-snug mb-2 group-hover:text-[#b58734] transition-colors">
-                      {service.title}
-                    </h3>
-
-                    <p className="text-[11px] text-slate-500 leading-relaxed mb-4">
-                      {service.desc}
-                    </p>
+                  {/* Image container */}
+                  <div className="h-48 sm:h-52 bg-slate-100 relative overflow-hidden">
+                    <img 
+                      src={service.image} 
+                      alt={service.title} 
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                    />
                   </div>
 
-                  <Link 
-                    to={service.link}
-                    className="text-[11px] font-bold text-[#b58734] hover:text-[#916720] inline-flex items-center space-x-1 pt-2 transition-colors"
-                  >
-                    <span>Learn More</span>
-                    <ArrowRight className="w-3 h-3 ml-0.5" />
-                  </Link>
+                  {/* Card content with circular dark blue icon badge */}
+                  <div className="p-6 flex-1 flex flex-col justify-between">
+                    <div>
+                      <div className="flex items-center space-x-3 mb-3">
+                        <div className="w-10 h-10 rounded-full bg-[#081a2e] border-2 border-[#d4a34b] text-white flex items-center justify-center shrink-0 shadow-sm">
+                          <Icon className="w-5 h-5 text-white" />
+                        </div>
+                        <h3 className="text-base font-bold text-[#081a2e] leading-snug group-hover:text-[#b58734] transition-colors">
+                          {service.title}
+                        </h3>
+                      </div>
+
+                      <p className="text-xs text-slate-500 leading-relaxed mb-6">
+                        {service.desc}
+                      </p>
+                    </div>
+
+                    <div>
+                      <Link 
+                        to={service.link}
+                        className="text-xs font-bold text-[#b58734] hover:text-[#916720] inline-flex items-center space-x-1 transition-colors"
+                      >
+                        <span>Learn More</span>
+                        <ArrowRight className="w-3.5 h-3.5 ml-1" />
+                      </Link>
+                    </div>
+                  </div>
                 </div>
               );
             })}
           </div>
 
+          {/* Slogan Banner: Matches bottom strip in Mockup 2 */}
+          <div className="mt-12 bg-[#081a2e] rounded-xl border border-navy-800 p-6 sm:p-8 text-white shadow-lg">
+            <div className="flex flex-col lg:flex-row items-center justify-between gap-6">
+              
+              {/* Logo & Slogan */}
+              <div className="flex flex-col sm:flex-row items-center space-y-4 sm:space-y-0 sm:space-x-6 text-center sm:text-left">
+                <div className="bg-white rounded-lg p-2 shrink-0 shadow">
+                  <img 
+                    src={companyInfo.logo} 
+                    alt="Orion Build Cost" 
+                    className="h-10 w-auto object-contain"
+                  />
+                </div>
+                <div className="hidden sm:block h-10 w-[1px] bg-slate-700"></div>
+                <div>
+                  <div className="text-xl sm:text-2xl font-extrabold tracking-tight">
+                    Build Smarter. <span className="text-[#d4a34b]">Grow Faster.</span>
+                  </div>
+                </div>
+              </div>
+
+              {/* 3 Badges */}
+              <div className="flex flex-wrap items-center justify-center gap-6 sm:gap-8 pt-2 lg:pt-0 border-t lg:border-t-0 border-slate-700/60 w-full lg:w-auto">
+                <div className="flex items-center space-x-2.5">
+                  <div className="w-8 h-8 rounded-full bg-[#0d223a] border border-[#d4a34b]/40 flex items-center justify-center text-[#d4a34b] shrink-0">
+                    <ShieldCheck className="w-4 h-4 text-[#d4a34b]" />
+                  </div>
+                  <span className="text-xs font-semibold text-slate-200">Trusted Expertise</span>
+                </div>
+
+                <div className="flex items-center space-x-2.5">
+                  <div className="w-8 h-8 rounded-full bg-[#0d223a] border border-[#d4a34b]/40 flex items-center justify-center text-[#d4a34b] shrink-0">
+                    <Clock className="w-4 h-4 text-[#d4a34b]" />
+                  </div>
+                  <span className="text-xs font-semibold text-slate-200">On-Time Delivery</span>
+                </div>
+
+                <div className="flex items-center space-x-2.5">
+                  <div className="w-8 h-8 rounded-full bg-[#0d223a] border border-[#d4a34b]/40 flex items-center justify-center text-[#d4a34b] shrink-0">
+                    <Handshake className="w-4 h-4 text-[#d4a34b]" />
+                  </div>
+                  <span className="text-xs font-semibold text-slate-200">Dedicated Support</span>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
         </div>
       </section>
 
-      {/* 3. DUAL ROW: ABOUT US (Left) & FEATURED PROJECTS (Right) — Matches Screenshot 1 */}
-      <section className="py-12 sm:py-16 bg-white border-t border-slate-100">
+      {/* 3. DUAL ROW: ABOUT US (Left) & FEATURED PROJECTS (Right) */}
+      <section className="py-14 sm:py-18 bg-white border-t border-slate-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
             
             {/* Left Column: About Orion Build Cost with image & card */}
-            <div className="lg:col-span-5 bg-white rounded-lg border border-slate-200 overflow-hidden shadow-sm flex flex-col sm:flex-row lg:flex-col">
+            <div className="lg:col-span-5 bg-white rounded-xl border border-slate-200 overflow-hidden shadow-sm flex flex-col sm:flex-row lg:flex-col">
               <div className="sm:w-1/2 lg:w-full h-56 sm:h-auto lg:h-52 bg-slate-100 relative">
                 <img 
                   src="/images/surveyor-tools.jpg" 
@@ -211,7 +329,7 @@ export default function HomePage() {
             </div>
 
             {/* Right Column: Featured Projects 3-image mosaic */}
-            <div className="lg:col-span-7 bg-white rounded-lg border border-slate-200 p-6 shadow-sm flex flex-col justify-between">
+            <div className="lg:col-span-7 bg-white rounded-xl border border-slate-200 p-6 shadow-sm flex flex-col justify-between">
               <div>
                 <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-4 gap-3">
                   <div>
@@ -287,7 +405,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 4. BOTTOM BANNER: Matches Screenshot 1 with navy button */}
+      {/* 4. BOTTOM BANNER */}
       <QuoteBanner 
         tagline="READY TO DISCUSS YOUR PROJECT?"
         title="Get a Quote for Your Construction Project"

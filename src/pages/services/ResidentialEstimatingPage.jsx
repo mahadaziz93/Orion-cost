@@ -16,10 +16,49 @@ import Breadcrumbs from '../../components/Breadcrumbs';
 import QuoteBanner from '../../components/QuoteBanner';
 
 export default function ResidentialEstimatingPage() {
+  const residentialShowcase = [
+    {
+      title: "Bespoke Luxury Dwellings",
+      type: "Private Residential",
+      desc: "Detailed elemental estimates for custom architect-designed homes, high-efficiency building envelopes, and premium finishes.",
+      image: "/images/luxury-home.jpg"
+    },
+    {
+      title: "New Build Housing Developments",
+      type: "Multi-Unit Scheme",
+      desc: "Complete bill of quantities, substructure measurement, and volume construction cost forecasting for UK home builders.",
+      image: "/images/residential-newbuild.jpg"
+    },
+    {
+      title: "Single & Two-Storey Extensions",
+      type: "Residential Extension",
+      desc: "Comprehensive trade breakdowns for rear extensions, wrap-arounds, and structural steel alterations.",
+      image: "/images/residential-extension.jpg"
+    },
+    {
+      title: "Period Property Renovations",
+      type: "Refurbishment & Remodel",
+      desc: "Accurate labour and material take-offs for internal remodeling, structural opening works, and bespoke joinery.",
+      image: "/images/residential-renovation.jpg"
+    },
+    {
+      title: "Apartment Blocks & Multi-Unit",
+      type: "Residential Apartments",
+      desc: "Robust cost plans for medium-density residential developments, communal areas, and building regulations compliance.",
+      image: "/images/residential-apartment.jpg"
+    },
+    {
+      title: "Barn & Property Conversions",
+      type: "Conversion Scheme",
+      desc: "Cost estimation for heritage restorations, structural timber repairs, and change-of-use residential projects.",
+      image: "/images/residential-conversion.jpg"
+    }
+  ];
+
   return (
     <div className="bg-slate-50 min-h-screen">
       
-      {/* 1. HERO BANNER: Matches Screenshot 1 */}
+      {/* 1. HERO BANNER: Matches Reference Screenshot */}
       <section className="bg-[#081a2e] text-white py-12 sm:py-16 relative overflow-hidden border-b border-navy-800">
         <div className="absolute right-0 top-0 bottom-0 w-full lg:w-1/2 z-0">
           <img 
@@ -44,7 +83,7 @@ export default function ResidentialEstimatingPage() {
               Accurate and detailed cost estimates for residential projects, helping homeowners, builders and developers plan, budget and build with confidence.
             </p>
 
-            {/* 4 Feature Badges from Screenshot 1 */}
+            {/* 4 Feature Badges */}
             <div className="flex flex-wrap gap-2.5 mb-8">
               <div className="inline-flex items-center space-x-2 bg-navy-900/80 border border-slate-700/80 px-3 py-1.5 rounded text-xs text-slate-200">
                 <FileText className="w-3.5 h-3.5 text-[#d4a34b]" />
@@ -79,7 +118,7 @@ export default function ResidentialEstimatingPage() {
         </div>
       </section>
 
-      {/* 2. MAIN CONTENT AREA: Matches Screenshot 1 */}
+      {/* 2. MAIN CONTENT AREA */}
       <section className="py-14 sm:py-20 bg-slate-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
@@ -98,7 +137,7 @@ export default function ResidentialEstimatingPage() {
                   We provide precise and reliable cost estimates for residential construction projects of all sizes — from single homes to large housing developments. Our team ensures accurate quantity take-offs, up-to-date pricing and detailed breakdowns to keep your project on track and within budget.
                 </p>
 
-                {/* 4 Checkmarks matching Screenshot 1 */}
+                {/* 4 Checkmarks */}
                 <div className="space-y-2.5">
                   <div className="flex items-center space-x-2.5 text-xs sm:text-sm text-slate-700 font-medium">
                     <div className="w-4 h-4 rounded-full bg-[#fcf8ee] border border-[#d4a34b] text-[#b58734] flex items-center justify-center shrink-0">
@@ -154,15 +193,15 @@ export default function ResidentialEstimatingPage() {
                   <div className="col-span-1 grid grid-rows-2 gap-2 h-44">
                     <div className="rounded overflow-hidden bg-slate-100">
                       <img 
-                        src="/images/architectural-plans.jpg" 
-                        alt="Architectural model and drawings" 
+                        src="/images/residential-renovation.jpg" 
+                        alt="Residential interior restoration" 
                         className="w-full h-full object-cover"
                       />
                     </div>
                     <div className="rounded overflow-hidden bg-slate-100">
                       <img 
-                        src="/images/surveyor-tools.jpg" 
-                        alt="Blueprints and tape measure" 
+                        src="/images/residential-extension.jpg" 
+                        alt="Residential modern house extension" 
                         className="w-full h-full object-cover"
                       />
                     </div>
@@ -295,7 +334,64 @@ export default function ResidentialEstimatingPage() {
         </div>
       </section>
 
-      {/* 3. BOTTOM CTA BANNER: Matches Screenshot 1 */}
+      {/* 2B. RESIDENTIAL PROJECT TYPES SHOWCASE (6 Dedicated Residential Images) */}
+      <section className="py-14 sm:py-18 bg-white border-t border-slate-200/80">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="mb-10 text-center">
+            <span className="text-[11px] font-bold uppercase tracking-wider text-[#b58734] block mb-1">
+              — RESIDENTIAL PROJECT SHOWCASE
+            </span>
+            <h3 className="text-2xl sm:text-3xl font-extrabold text-[#081a2e]">
+              Residential Schemes We Estimate
+            </h3>
+            <p className="mt-2 text-xs sm:text-sm text-slate-600 max-w-2xl mx-auto">
+              Our residential quantity surveying covers every scale of UK domestic construction, from architect-led one-off dwellings to multi-plot residential developments.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {residentialShowcase.map((item, idx) => (
+              <div 
+                key={idx}
+                className="rounded-xl border border-slate-200 overflow-hidden shadow-sm hover:shadow-md transition-all group flex flex-col justify-between bg-white"
+              >
+                <div>
+                  <div className="h-48 overflow-hidden bg-slate-100 relative">
+                    <img 
+                      src={item.image} 
+                      alt={item.title} 
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                    />
+                    <div className="absolute top-3 left-3 bg-[#081a2e]/90 text-[#d4a34b] text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded">
+                      {item.type}
+                    </div>
+                  </div>
+                  <div className="p-5">
+                    <h4 className="text-base font-bold text-[#081a2e] mb-1.5 group-hover:text-[#b58734] transition-colors">
+                      {item.title}
+                    </h4>
+                    <p className="text-xs text-slate-500 leading-relaxed">
+                      {item.desc}
+                    </p>
+                  </div>
+                </div>
+
+                <div className="px-5 pb-5 pt-0">
+                  <Link
+                    to="/request-a-quote?service=residential-estimating"
+                    className="text-xs font-bold text-[#b58734] hover:text-[#916720] inline-flex items-center space-x-1"
+                  >
+                    <span>Request Estimate</span>
+                    <ArrowRight className="w-3 h-3 ml-1" />
+                  </Link>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 3. BOTTOM CTA BANNER */}
       <QuoteBanner 
         tagline="BUILD YOUR DREAM HOME"
         title="Accurate Estimates. Better Decisions."
