@@ -27,3 +27,4 @@ dist-ssr
 audit_screenshots
 scripts/screenshots
 scripts/audit-results.json
+public/preview-snapshots

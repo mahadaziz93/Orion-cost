@@ -96,14 +96,14 @@ export default function Navbar() {
 
       {/* Main clean white Navbar matching screenshots */}
       <nav className="bg-white border-b border-slate-200/90 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto flex items-center justify-between h-20 sm:h-24">
+        <div className="max-w-7xl mx-auto flex items-center justify-between min-h-[85px] sm:min-h-[100px] lg:min-h-[130px] py-1.5 sm:py-2">
           
-          {/* Logo container using original logo on clean white with increased prominent size */}
-          <Link to="/" className="flex items-center shrink-0 py-1" aria-label="Orion Build Cost Homepage">
+          {/* Logo container: full original uncropped logo with object-contain */}
+          <Link to="/" className="flex items-center shrink-0" aria-label="Orion Build Cost Homepage">
             <img 
               src={companyInfo.logo} 
               alt="Orion Build Cost - Cost Estimation Experts" 
-              className="h-14 sm:h-16 md:h-20 w-auto object-contain max-w-[240px] sm:max-w-[280px]"
+              className="w-auto h-20 sm:h-24 md:h-28 lg:h-[152px] max-w-[200px] sm:max-w-[240px] md:max-w-[280px] lg:max-w-[340px] object-contain"
             />
           </Link>
 

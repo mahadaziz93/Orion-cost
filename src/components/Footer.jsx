@@ -12,21 +12,21 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Main 4-column footer layout from reference screenshots */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 pb-10 border-b border-navy-800/80">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 pb-10 border-b border-navy-800/80 items-start">
           
           {/* Brand Column (4 cols) */}
-          <div className="lg:col-span-3 space-y-4">
+          <div className="lg:col-span-4 space-y-4">
             <Link to="/" className="inline-block" aria-label="Orion Build Cost Homepage">
-              <div className="bg-white rounded-lg p-2.5 inline-block shadow-md">
+              <div className="bg-white rounded-xl p-3 sm:p-4 inline-block shadow-lg hover:shadow-xl transition-shadow">
                 <img 
                   src={companyInfo.logo} 
-                  alt="Orion Build Cost" 
-                  className="h-14 sm:h-16 md:h-18 w-auto object-contain max-w-[220px]"
+                  alt="Orion Build Cost - Cost Estimation Experts" 
+                  className="w-[260px] sm:w-[300px] md:w-[330px] lg:w-[360px] max-w-full h-auto object-contain block"
                 />
               </div>
             </Link>
             
-            <p className="text-xs text-slate-400 leading-relaxed pt-2">
+            <p className="text-xs text-slate-400 leading-relaxed pt-2 max-w-sm">
               Professional quantity surveying and construction cost consultancy for UK building contractors, builders and developers.
             </p>
 
@@ -64,8 +64,8 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Our Services (4 cols) */}
-          <div className="lg:col-span-4 space-y-3">
+          {/* Our Services (3 cols) */}
+          <div className="lg:col-span-3 space-y-3">
             <h4 className="text-white font-bold text-xs uppercase tracking-wider">
               Our Services
             </h4>
